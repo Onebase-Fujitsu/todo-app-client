@@ -1,9 +1,13 @@
-import {shallow} from 'enzyme'
+import {cleanup, render, screen} from "@testing-library/react";
 import Header from "../../components/Header";
 
 describe("Header", () => {
+  afterEach(() => {
+    cleanup()
+  })
+
   it("ヘッダーの初期表示", () => {
-    const wrapper = shallow(<Header />)
-    expect(wrapper.find('h1').text()).toEqual("Todo App")
+    render(<Header />)
+    expect(screen.getByText('Todo App')).toBeInTheDocument()
   })
 })

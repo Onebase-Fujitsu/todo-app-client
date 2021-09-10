@@ -1,10 +1,14 @@
-import {shallow} from 'enzyme'
+import {cleanup, render, screen} from "@testing-library/react";
 import Home from "../../pages/Home";
-import Header from "../../components/Header";
 
 describe("Home画面", () => {
+
+  afterEach(() => {
+    cleanup()
+  })
+
   it("ホーム画面の初期表示", () => {
-    const wrapper = shallow(<Home />)
-    expect(wrapper.find(Header).exists()).toEqual(true)
+    render(<Home />)
+    expect(screen.getByText("Todo App")).toBeInTheDocument()
   })
 })
