@@ -1,6 +1,6 @@
 import MockAdapter from 'axios-mock-adapter'
 import axios from 'axios'
-import {getTodos} from '../../features/TodoApi'
+import {getTodos, postTodos} from '../../features/TodoApi'
 
 describe('TodoApi', () => {
   let mock: MockAdapter
@@ -28,5 +28,22 @@ describe('TodoApi', () => {
     expect(response[0].id).toEqual(1)
     expect(response[0].title).toEqual('title')
     expect(response[0].completed).toEqual(false)
+  })
+
+  it('post /todos', async () => {
+    mock.onPost('/todos', {title: 'title'}).reply(201,
+      {
+        id: 1,
+        title: 'title',
+        completed: false
+      })
+
+    const response = await postTodos('title')
+
+    expect(mock.history.post[0].url).toEqual('/todos')
+    expect(mock.history.post[0].data).toEqual(JSON.stringify({title: 'title'}))
+    expect(response.id).toEqual(1)
+    expect(response.title).toEqual('title')
+    expect(response.completed).toEqual(false)
   })
 })
