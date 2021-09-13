@@ -13,7 +13,7 @@ const Home = () => {
   })
 
   return (
-    <div className="flex">
+    <div data-testid="Home" className="flex">
       <Header />
       <TodoList />
     </div>

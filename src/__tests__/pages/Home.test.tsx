@@ -17,6 +17,12 @@ describe('Home画面', () => {
     cleanup()
   })
 
+  it("画面構成", () => {
+    render(<Home />)
+    expect(screen.queryByTestId('Header')).toBeTruthy()
+    expect(screen.queryByTestId('TodoList')).toBeTruthy()
+  })
+
   it('ホーム画面の初期表示', async () => {
     mock.onGet('/todos').reply(200, [
       {

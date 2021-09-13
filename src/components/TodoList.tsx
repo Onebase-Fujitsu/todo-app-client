@@ -5,7 +5,7 @@ const TodoList = () => {
   const todos = useSelector((state: RootState) => state.todos)
 
   return (
-    <ul>
+    <ul data-testid='TodoList'>
       {todos.map((todo) => (
         <li key={todo.id}>{todo.title}</li>
       ))}

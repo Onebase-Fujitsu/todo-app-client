@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 import {HomeIcon, PencilAltIcon} from '@heroicons/react/solid'
 
 const Header = () => (
-  <div className="h-screen w-48 border-r bg-white">
+  <div data-testid="Header" className="h-screen w-48 border-r bg-white">
     <h1 className="font-semibold p-4 text-xl tracking-tight">Todo App</h1>
     <div className="h-3/4 flex flex-col justify-start text-gray-500">
       <Link
