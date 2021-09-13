@@ -17,7 +17,7 @@ describe('Home画面', () => {
     cleanup()
   })
 
-  it("画面構成", () => {
+  it('画面構成', () => {
     render(<Home />)
     expect(screen.queryByTestId('Header')).toBeTruthy()
     expect(screen.queryByTestId('TodoList')).toBeTruthy()
