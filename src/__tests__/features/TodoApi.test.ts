@@ -42,6 +42,8 @@ describe('TodoApi', () => {
 
     expect(mock.history.post[0].url).toEqual('/todos')
     expect(mock.history.post[0].data).toEqual(JSON.stringify({title: 'title'}))
+    expect(mock.history.post[0].headers['Content-Type']).toEqual("application/json")
+    expect(mock.history.post[0].headers['X-Requested-With']).toEqual("XMLHttpRequest")
     expect(response.id).toEqual(1)
     expect(response.title).toEqual('title')
     expect(response.completed).toEqual(false)
