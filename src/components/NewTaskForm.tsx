@@ -18,9 +18,10 @@ const NewTaskForm = () => {
             Title
           </label>
           <input
-            className="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            className="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full"
             id="titleInput"
             data-testid="TitleInput"
+            placeholder="Title Input"
             type="text"
             value={taskInput}
             onChange={(event) => setTaskInput(event.target.value)}
@@ -30,7 +31,7 @@ const NewTaskForm = () => {
       <div className="md:flex md:items-center">
         <div className="md:w-1/3">
           <button
-            className="shadow bg-green-400 hover:bg-green-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded"
+            className="bg-green-500 text-white active:bg-green-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
             type="button"
             onClick={()=>dispatch(postTodoAction({title: taskInput}))}
           >
