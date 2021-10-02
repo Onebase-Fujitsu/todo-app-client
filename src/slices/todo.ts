@@ -17,7 +17,7 @@ export const postTodoAction = createAsyncThunk<Todo, {title: string}>(
   async (arg): Promise<Todo> => postTodos(arg.title)
 )
 
-export const todoSlice = createSlice({
+export const todo = createSlice({
   name: 'todos',
   initialState: [] as Todo[],
   reducers: {},
@@ -27,4 +27,4 @@ export const todoSlice = createSlice({
   },
 })
 
-export default todoSlice
+export default todo

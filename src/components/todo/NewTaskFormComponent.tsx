@@ -1,9 +1,9 @@
 import {useState} from 'react'
 import {useDispatch} from "react-redux";
-import {AppDispatch} from "../stores/store";
-import {postTodoAction} from "../stores/todoSlice";
+import {AppDispatch} from "../../stores/store";
+import {postTodoAction} from "../../slices/todo";
 
-const NewTaskForm = () => {
+const NewTaskFormComponent = () => {
   const [taskInput, setTaskInput] = useState('')
   const dispatch: AppDispatch = useDispatch()
 
@@ -43,4 +43,4 @@ const NewTaskForm = () => {
   )
 }
 
-export default NewTaskForm
+export default NewTaskFormComponent

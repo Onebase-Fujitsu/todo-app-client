@@ -1,8 +1,8 @@
 import {cleanup, fireEvent, screen} from '@testing-library/react'
 import MockAdapter from "axios-mock-adapter";
 import axios from "axios";
-import NewTaskForm from '../../components/NewTaskForm'
-import {render} from '../../test-utils'
+import NewTaskFormComponent from '../../../components/todo/NewTaskFormComponent'
+import {render} from '../../../test-utils'
 
 describe('NewEntryFormコンポーネント', () => {
   let mock: MockAdapter
@@ -17,14 +17,14 @@ describe('NewEntryFormコンポーネント', () => {
   })
 
   it('初期表示', () => {
-    render(<NewTaskForm />)
+    render(<NewTaskFormComponent />)
     expect(screen.queryByLabelText('Title')).toBeTruthy()
     expect(screen.getByTestId('TitleInput')).toHaveValue('')
     expect(screen.queryByText('Send')).toBeTruthy()
   })
 
   it('タスク名を編集できる', () => {
-    render(<NewTaskForm />)
+    render(<NewTaskFormComponent />)
     fireEvent.change(screen.getByTestId('TitleInput'), {
       target: {value: 'title text'},
     })
@@ -32,7 +32,7 @@ describe('NewEntryFormコンポーネント', () => {
   })
 
   it("作成ボタンを押したら、作成がリクエストされる", async () => {
-    render(<NewTaskForm />)
+    render(<NewTaskFormComponent />)
     fireEvent.change(screen.getByTestId('TitleInput'), {
       target: {value: 'title text'},
     })

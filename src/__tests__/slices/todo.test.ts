@@ -1,13 +1,13 @@
-import todoSlice, {getTodoAction, postTodoAction} from '../../stores/todoSlice'
+import todo, {getTodoAction, postTodoAction} from '../../slices/todo'
 
 describe('todo reducer', () => {
   it('initial state', () => {
-    expect(todoSlice.reducer(undefined, {type: undefined})).toEqual([])
+    expect(todo.reducer(undefined, {type: undefined})).toEqual([])
   })
 
   it('get todo is pending', async () => {
     const action = {type: getTodoAction.pending.type}
-    const state = todoSlice.reducer([], action)
+    const state = todo.reducer([], action)
     expect(state.length).toEqual(0)
   })
 
@@ -23,7 +23,7 @@ describe('todo reducer', () => {
       ],
     }
 
-    const state = todoSlice.reducer([], action)
+    const state = todo.reducer([], action)
     expect(state.length).toEqual(1)
     expect(state[0].id).toEqual(1)
     expect(state[0].title).toEqual('hoge')
@@ -32,13 +32,13 @@ describe('todo reducer', () => {
 
   it('get todo is rejected', async () => {
     const action = {type: getTodoAction.rejected.type}
-    const state = todoSlice.reducer([], action)
+    const state = todo.reducer([], action)
     expect(state.length).toEqual(0)
   })
 
   it('post todo is pending', async () => {
     const action = {type: postTodoAction.pending.type}
-    const state = todoSlice.reducer([], action)
+    const state = todo.reducer([], action)
     expect(state.length).toEqual(0)
   })
 
@@ -58,7 +58,7 @@ describe('todo reducer', () => {
       title: 'title',
       completed: false
     }]
-    const state = todoSlice.reducer(initialState, action)
+    const state = todo.reducer(initialState, action)
     expect(state.length).toEqual(2)
     expect(state[0].id).toEqual(1)
     expect(state[0].title).toEqual('title')
@@ -70,7 +70,7 @@ describe('todo reducer', () => {
 
   it('post todo is rejected', async () => {
     const action = {type: postTodoAction.rejected.type}
-    const state = todoSlice.reducer([], action)
+    const state = todo.reducer([], action)
     expect(state.length).toEqual(0)
   })
 })

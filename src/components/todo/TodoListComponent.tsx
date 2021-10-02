@@ -1,7 +1,7 @@
 import {useSelector} from 'react-redux'
-import {RootState} from '../stores/store'
+import {RootState} from '../../stores/store'
 
-const TodoList = () => {
+const TodoListComponent = () => {
   const todos = useSelector((state: RootState) => state.todos)
 
   return (
@@ -20,4 +20,4 @@ const TodoList = () => {
   )
 }
 
-export default TodoList
+export default TodoListComponent

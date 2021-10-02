@@ -1,5 +1,5 @@
 import axios from 'axios'
-import {Todo} from '../stores/todoSlice'
+import {Todo} from '../slices/todo'
 
 export const getTodos = async () => {
   const response = await axios.get<Todo[]>('/todos')

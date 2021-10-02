@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Switch} from 'react-router-dom'
 import Home from './pages/Home'
 import NewTask from './pages/NewTask'
 import {AppDispatch} from "./stores/store";
-import {getTodoAction} from "./stores/todoSlice";
+import {getTodoAction} from "./slices/todo";
 
 function App() {
   const dispatch: AppDispatch = useDispatch()

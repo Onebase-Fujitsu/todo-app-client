@@ -1,7 +1,7 @@
 import {render as rtlRender} from '@testing-library/react'
 import {configureStore} from '@reduxjs/toolkit'
 import {Provider} from 'react-redux'
-import todoSlice from './stores/todoSlice'
+import todo from './slices/todo'
 import {BrowserRouter} from 'react-router-dom'
 
 function render(
@@ -9,7 +9,7 @@ function render(
   {
     preloadedState,
     store = configureStore({
-      reducer: {todos: todoSlice.reducer},
+      reducer: {todos: todo.reducer},
       preloadedState,
     }),
     ...renderOptions

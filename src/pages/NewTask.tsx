@@ -1,10 +1,10 @@
-import Header from '../components/Header'
-import NewTaskForm from '../components/NewTaskForm'
+import HeaderComponent from '../components/header/HeaderComponent'
+import NewTaskFormComponent from '../components/todo/NewTaskFormComponent'
 
 const NewTask = () => (
   <div data-testid="NewTask" className="flex">
-    <Header />
-    <NewTaskForm />
+    <HeaderComponent />
+    <NewTaskFormComponent />
   </div>
 )
 
