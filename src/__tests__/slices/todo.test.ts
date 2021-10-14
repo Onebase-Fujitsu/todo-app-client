@@ -2,13 +2,13 @@ import todo, {getTodoAction, postTodoAction} from '../../slices/todo'
 
 describe('todo reducer', () => {
   it('initial state', () => {
-    expect(todo.reducer(undefined, {type: undefined})).toEqual([])
+    expect(todo.reducer(undefined, {type: undefined})).toEqual({"entities": {}, "ids": []})
   })
 
   it('get todo is pending', async () => {
     const action = {type: getTodoAction.pending.type}
-    const state = todo.reducer([], action)
-    expect(state.length).toEqual(0)
+    const state = todo.reducer({"entities": {}, "ids": []}, action)
+    expect(state.ids.length).toEqual(0)
   })
 
   it('get todo is fulfilled', async () => {
@@ -23,11 +23,8 @@ describe('todo reducer', () => {
       ],
     }
 
-    const state = todo.reducer([], action)
-    expect(state.length).toEqual(1)
-    expect(state[0].id).toEqual(1)
-    expect(state[0].title).toEqual('hoge')
-    expect(state[0].completed).toEqual(false)
+    const state = todo.reducer({"entities": {}, "ids": []}, action)
+    expect(state.ids.length).toEqual(1)
   })
 
   it('get todo is rejected', async () => {
